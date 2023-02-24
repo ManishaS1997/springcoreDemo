@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 
+ xmlns:p="http://www.springframework.org/schema/p" 
+ 
+  xmlns:util="http://www.springframework.org/schema/util" 
+ 
+ xmlns:context="http://www.springframework.org/schema/context" 
+ 
+ xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   
+   http://www.springframework.org/schema/util
+   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+  
+  
+  <!--  Stand-alone List: Util schema --> 
+  <util:list list-class="java.util.LinkedList" id="mybestfriends">
+  
+  <value> Akash</value>
+  <value> Vikas</value>
+  <value> Reajesh</value>
+  </util:list>
+  
+   <!-- Stand-alone Map -->
+  <util:map map-class="java.util.TreeMap" id="fees">
+  <entry key="java" value="5000"></entry>
+  <entry key="typing" value="2000"></entry>
+  <entry key="CCC" value="3000"></entry>
+  </util:map>
+  
+  <!--  Stand-alone properties -->
+  <util:properties id="dbConfig">
+  <prop key="driver">com.mysql.jdbc.Driver</prop>
+  <prop key="userName">root</prop>
+  <prop key="password"> Mani@89</prop>
+  <prop key="url"> mysql:jdbc://localhost:3306/test </prop>
+  </util:properties>
+  
+  
+  <!--  Book bean  -->
+   <bean id="book" class="com.springcore.collection.Book">
+   <property name="bookID" value="123"></property>
+   <property name="bookName" value="Java Black Book"></property>
+   <property name="bookAuthor" value="John Mark"></property>
+   <property name="bookPrice" value="649"></property>
+    </bean>
+    
+    <bean id="person" class="com.springcore.collection.Person">
+
+	<property name="friends" ref="mybestfriends"/>
+	<property name="feeStructure" ref="fees"></property>
+	<property name="properties" ref="dbConfig"></property>
+	</bean>
+   
+   </beans>
